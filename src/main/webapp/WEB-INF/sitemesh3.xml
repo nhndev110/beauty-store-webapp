@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemesh>
+	<content-processor>
+		<tag-rule-bundle class="org.sitemesh.content.tagrules.html.Sm2TagRuleBundle" />
+	</content-processor>
+	
+	<decorator-prefix>/</decorator-prefix>
+	
+	<mapping path="/*" decorator="layouts/user.jsp" />
+	
+	<mapping path="/admin/*" decorator="layouts/admin.jsp" />
+	
+	<mapping path="/api/*" exclude="true" />
+</sitemesh>

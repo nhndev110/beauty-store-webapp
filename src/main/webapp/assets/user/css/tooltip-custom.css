@@ -1,0 +1,5 @@
+.invalid-tooltip {
+	top: 50%;
+	left: calc(100% + 6px);
+	white-space: nowrap;
+}

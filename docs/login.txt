@@ -1,0 +1,43 @@
+** Vấn đề còn tồn động **
+
+# Tách 2 token ra thành 2 chức năng khác nhau
+	- Lưu 1 token _a_tk
+	- Lưu 1 token _r_tk để làm chức năng "remember me"
+
+# Tối ưu chức "remember me" khi truy cập vào link nào cũng truy xuất đc user
+
+# Sử dụng access_token để gửi kèm theo khi thêm sản phẩm vào giỏ hàng
+
+# Đẩy mã nguồn lên github
+
+
+** Hoàn thiện phần đăng nhập **
+
+# LoginFilter:
+
+# LoginController:
+	- Khi người dùng gửi email và mật khẩu
+	- Kiểm tra xem trình duyệt có chứa cookie = [key] không ?
+		- Nếu có truy xuất dữ liệu vào db để lấy thông tin người dùng lưu vào session
+		- Nếu không trả về trang đăng nhập cho người dùng
+
+# LoginFilter:
+	- Kiểm tra user trong session có tồn tại ko ?
+		- Nếu k thì kiểm tra _tk_ac có ko ?
+			- Nếu có thì truy xuất thông tin user từ server lưu vào session
+			- Nếu k thì điều hướng tới trang login
+		- Nếu có thì sử dụng các chức năng như bth
+
+
+-----------------------------------
+** Sử dụng token account **
+- Làm chức năng "remember me"
+- Xác thức các yêu cầu từ client (vd: Thêm 1 sản phẩm vào giỏ hàng, ...)
+
+-----------------------------------
+** APICartController **
+- Thêm sản phẩm vào giỏ hàng:
+	- api: /api/cart (POST)
+	- Lấy userId => ? (lấy ở session)
+				productId => lấy ở element
+				quantity => tùy vào từng kiểu thêm sản phẩm (thêm tăng dần, thêm mới)
